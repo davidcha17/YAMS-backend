@@ -1,8 +1,15 @@
 class RestaurantsController < ApplicationController
 
-    # def index
-    #     parameters = { term: params[:term], limit: 10 }
-    #     render json: Yelp.client.search('New York City', parameters)
-    # end
+
+    def index
+        @restaurants = Restaurant.all
+        # byebug
+        render json: @restaurants
+    end
+
+    def show
+        
+    end
+
 
 end

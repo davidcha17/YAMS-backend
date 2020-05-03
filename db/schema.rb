@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2020_04_09_153347) do
   create_table "lists", force: :cascade do |t|
     t.integer "user_id"
     t.integer "restaurant_id"
+    t.integer "distance"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -26,11 +27,12 @@ ActiveRecord::Schema.define(version: 2020_04_09_153347) do
     t.string "name"
     t.string "image_url"
     t.string "url"
-    t.string "location"
-    t.integer "phone"
-    t.integer "coordinates"
-    t.string "display_address"
+    t.string "phone"
+    t.float "lat"
+    t.float "long"
+    t.string "address"
     t.string "price"
+    t.string "kind_of_food"
     t.integer "distance"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

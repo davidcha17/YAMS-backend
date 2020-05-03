@@ -1,16 +1,38 @@
-require 'config/initializers/yelp.rb'
 
-# configuration = Yelp::Fusion.client.configure do |config|
-#     config.api_key = 
-# end
 
-# client = Yelp::Fusion::Client.new("Wc_iRuCp73ssZ3Gy2XR4qUCRO9zX22jfz-1ibi007_hgmwZdYiTswzU0_vmOHwVRPl4t148Vxki0vr2BGyl-3HNepPcwvxDxHTIMxDMC7vRy-6P2X1Xr5Z1xKaqYXnYx")
+# cha = User.create(username: "bha", password: "123" )
+# bha = User.create(username: "cha", password: "123" )
 
-# # configuration.search('New York City', { term: 'food' })
+# yelp = Restaurant.create(name: "old", price: "$$$$")
+# pley = Restaurant.create(name: "new", price: "$")
 
-# client.search("New York City")
+# list_cha = List.create(user_id: 1, restaurant_id: 1, distance: 100)
 
-# params = {
-#     term: 'food',
-#     limit: 5
-#   }
+# creating the instances are a success and password_digests are being filtered
+
+# Actual seed data
+       
+DEFAULT_TERM = "food"
+DEFAULT_LOCATION = "NYC, NY"
+SEARCH_LIMIT = 5
+
+def self.search
+
+    url = "https://api.yelp.com/v3/businesses/search"
+    params = {
+        term: DEFAULT_TERM,
+        location: "89 Prospect Street, Brooklyn, New York 07307",
+        limit: SEARCH_LIMIT,
+        radius: 800, 
+        open_now: true
+    }
+        response = HTTP.auth("Bearer #{ENV["KEY"]}").get(url, params: params)
+        response.parse 
+        # byebug
+
+end
+
+self.search["businesses"].each do |business|
+    # byebug
+    Restaurant.create_restaurant_data(business)
+end

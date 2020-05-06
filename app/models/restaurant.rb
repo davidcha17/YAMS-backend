@@ -24,7 +24,8 @@ class Restaurant < ApplicationRecord
             price: business["price"],
             phone: business["display_phone"],
             distance: business["distance"],
-            kind_of_food: business["categories"].map{|item| item["title"]}.join(", ")
+            kind_of_food: business["categories"].map{|item| item["title"]}.join(", "),
+            transactions: business["transactions"].join(", ")
             )
             # byebug
         end

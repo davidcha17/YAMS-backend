@@ -18,10 +18,10 @@ class UsersController < ApplicationController
   
   def login
     @user = User.find_by(username: params[:username])
-    
+
     if @user && @user.authenticate(params[:password])
       wristband = encode_token({user_id: @user.id})
-      render json: { user: UserSerializer.new(@user), token: wristband }
+      render json: { user: UserSerializer.new(@user), token: wristband }, status: 201
     else
       render json: {error: "Not Applicable"}, status: 401
     end
@@ -33,8 +33,9 @@ class UsersController < ApplicationController
   end
   
   def persist
+    # byebug
     wristband = encode_token({user_id: @user.id})
-    render json: { user: UserSerializer.new(@user), token: wristband }
+    render json: { user: UserSerializer.new(@user), token: wristband }, status: 201
   end
 
 

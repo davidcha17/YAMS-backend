@@ -11,6 +11,7 @@ class CreateRestaurants < ActiveRecord::Migration[6.0]
       t.string :price
       t.string :kind_of_food
       t.integer :distance
+      t.string :transactions
 
       t.timestamps
     end

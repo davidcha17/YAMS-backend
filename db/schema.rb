@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 2020_04_09_153347) do
     t.string "price"
     t.string "kind_of_food"
     t.integer "distance"
+    t.string "transactions"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

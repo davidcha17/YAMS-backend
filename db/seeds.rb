@@ -11,10 +11,15 @@
 # creating the instances are a success and password_digests are being filtered
 
 # Actual seed data
-       
-DEFAULT_TERM = "food"
+
+puts "...deleting past restaurant data"
+Restaurant.destroy_all
+puts "reset complete..."
+
+# Trying to use different search terms to get only pickup and delivery 
+DEFAULT_TERM = "takeout"
 DEFAULT_LOCATION = "NYC, NY"
-SEARCH_LIMIT = 5
+SEARCH_LIMIT = 25
 
 def self.search
 

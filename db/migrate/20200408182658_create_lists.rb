@@ -3,9 +3,9 @@ class CreateLists < ActiveRecord::Migration[6.0]
     create_table :lists do |t|
       t.integer :user_id
       t.integer :restaurant_id
-      t.integer :distance
 
       t.timestamps
     end
   end
 end
+

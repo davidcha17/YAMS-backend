@@ -18,7 +18,6 @@ ActiveRecord::Schema.define(version: 2020_04_09_153347) do
   create_table "lists", force: :cascade do |t|
     t.integer "user_id"
     t.integer "restaurant_id"
-    t.integer "distance"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

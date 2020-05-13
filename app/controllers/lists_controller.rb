@@ -14,6 +14,12 @@ class ListsController < ApplicationController
 
         render json: @restaurants
     end
+
+    def destroy
+        @list = List.find_by(id: params[:id])
+        @list.destroy
+        render json: { message: "🖕" }
+      end
     
     
     private

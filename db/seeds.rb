@@ -19,7 +19,7 @@ puts "reset complete..."
 # Trying to use different search terms to get only pickup and delivery 
 DEFAULT_TERM = "takeout"
 DEFAULT_LOCATION = "NYC, NY"
-SEARCH_LIMIT = 25
+SEARCH_LIMIT = 50
 
 def self.search
 

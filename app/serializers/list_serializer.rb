@@ -1,5 +1,5 @@
 class ListSerializer < ActiveModel::Serializer
-  attributes :id, :user_id, :restaurant_id
+  attributes :id, :user_id, :restaurant_id, :restaurant
   # belongs_to :user, :restaurant
 end
 

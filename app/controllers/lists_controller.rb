@@ -10,7 +10,7 @@ class ListsController < ApplicationController
 
     def index 
         # @list = List.find_by(params@user.list)
-        @restaurants = @user.restaurants
+        @restaurants = @lists
 
         render json: @restaurants
     end
@@ -19,7 +19,7 @@ class ListsController < ApplicationController
         @list = List.find_by(id: params[:id])
         @list.destroy
         render json: { message: "🖕" }
-      end
+    end
     
     
     private
